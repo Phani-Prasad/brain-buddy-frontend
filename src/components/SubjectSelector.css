@@ -1,0 +1,44 @@
+.subject-selector {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.subject-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: rgba(255, 255, 255, 0.05);
+  /* Subtle white glass */
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md, 12px);
+  cursor: pointer;
+  transition: var(--transition, all 0.3s cubic-bezier(0.4, 0, 0.2, 1));
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.subject-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.subject-btn.active {
+  background: var(--subject-glow-1, #6366f1);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 20px var(--subject-glow-1, rgba(99, 102, 241, 0.3));
+}
+
+.subject-icon {
+  font-size: 18px;
+}
+
+.subject-name {
+  font-size: 14px;
+}
