@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './StudyMaterial.css';
 
-const API_URL = 'http://localhost:8000';
+const API_URL = 'https://brain-buddy-backend-5vgr.onrender.com';
 
 const StudyMaterial = ({ language }) => {
     const [documents, setDocuments] = useState([]);

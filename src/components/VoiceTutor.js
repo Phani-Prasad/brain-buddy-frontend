@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './VoiceTutor.css';
 
-const API_URL = 'http://localhost:8000';
+const API_URL = 'https://brain-buddy-backend-5vgr.onrender.com';
 
 function VoiceTutor({ sessionId, subject, gradeLevel }) {
     const [isRecording, setIsRecording] = useState(false);

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './ChatInterface.css';
 
-const API_URL = 'http://localhost:8000';
+const API_URL = 'https://brain-buddy-backend-5vgr.onrender.com';
 
 const ChatInterface = ({ sessionId, subject, gradeLevel, language, userId }) => {
   const [messages, setMessages] = useState([]);

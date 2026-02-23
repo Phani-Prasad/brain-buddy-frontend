@@ -12,7 +12,7 @@ import LandingPage from './components/LandingPage';
 import Flashcards from './components/Flashcards';
 import Dashboard from './components/Dashboard';
 
-const API_BASE = 'http://localhost:8000';
+const API_BASE = 'https://brain-buddy-backend-5vgr.onrender.com';
 
 function App() {
   const { i18n, t } = useTranslation();

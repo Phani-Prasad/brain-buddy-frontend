@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './Flashcards.css';
 
-const API_URL = 'http://localhost:8000';
+const API_URL = 'https://brain-buddy-backend-5vgr.onrender.com';
 
 function Flashcards({ userId, subject }) {
     const [documents, setDocuments] = useState([]);

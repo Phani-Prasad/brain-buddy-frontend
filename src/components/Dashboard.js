@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Dashboard.css';
 
-const API_URL = 'http://localhost:8000';
+const API_URL = 'https://brain-buddy-backend-5vgr.onrender.com';
 
 const ACTIVITY_LABELS = {
     chat_message: { icon: '💬', label: 'Chat Message' },

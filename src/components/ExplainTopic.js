@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './ExplainTopic.css';
 
-const API_URL = 'http://localhost:8000';
+const API_URL = 'https://brain-buddy-backend-5vgr.onrender.com';
 
 const ExplainTopic = ({ gradeLevel }) => {
   const [topic, setTopic] = useState('');
