@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './VoiceTutor.css';
-
-const API_URL = 'https://brain-buddy-backend-5vgr.onrender.com';
+import { API_BASE } from '../config';
 
 function VoiceTutor({ sessionId, subject, gradeLevel }) {
     const [isRecording, setIsRecording] = useState(false);
@@ -73,7 +72,7 @@ function VoiceTutor({ sessionId, subject, gradeLevel }) {
             formData.append('subject', subject || 'General');
             formData.append('grade_level', gradeLevel || 'High School');
 
-            const res = await fetch(`${API_URL}/api/voice/chat`, {
+            const res = await fetch(`${API_BASE}/api/voice/chat`, {
                 method: 'POST',
                 body: formData,
             });
@@ -97,7 +96,7 @@ function VoiceTutor({ sessionId, subject, gradeLevel }) {
 
             // Fetch and play the audio response
             if (data.audio_url) {
-                const audioResponse = await fetch(`${API_URL}${data.audio_url}`);
+                const audioResponse = await fetch(`${API_BASE}${data.audio_url}`);
                 const audioBlob = await audioResponse.blob();
                 const url = URL.createObjectURL(audioBlob);
                 setAudioUrl(url);

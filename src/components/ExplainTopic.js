@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './ExplainTopic.css';
-
-const API_URL = 'https://brain-buddy-backend-5vgr.onrender.com';
+import { API_BASE } from '../config';
 
 const ExplainTopic = ({ gradeLevel }) => {
   const [topic, setTopic] = useState('');
@@ -15,7 +14,7 @@ const ExplainTopic = ({ gradeLevel }) => {
 
     setIsLoading(true);
     try {
-      const response = await axios.post(`${API_URL}/api/explain`, {
+      const response = await axios.post(`${API_BASE}/api/explain`, {
         topic: topic,
         grade_level: gradeLevel,
         detail_level: detailLevel

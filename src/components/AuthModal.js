@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './AuthModal.css';
-
-const API_BASE = 'https://brain-buddy-backend-5vgr.onrender.com';
+import { API_BASE } from '../config';
 
 function AuthModal({ initialMode = 'login', onSuccess, onClose }) {
     const [mode, setMode] = useState(initialMode); // 'login' | 'register'
@@ -158,3 +157,4 @@ function AuthModal({ initialMode = 'login', onSuccess, onClose }) {
 }
 
 export default AuthModal;
+

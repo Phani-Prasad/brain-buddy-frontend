@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Dashboard.css';
-
-const API_URL = 'https://brain-buddy-backend-5vgr.onrender.com';
+import { API_BASE } from '../config';
 
 const ACTIVITY_LABELS = {
     chat_message: { icon: '💬', label: 'Chat Message' },
@@ -92,7 +91,7 @@ function Dashboard({ user }) {
 
     useEffect(() => {
         if (!user?.id) { setLoading(false); return; }
-        fetch(`${API_URL}/api/progress/${user.id}`)
+        fetch(`${API_BASE}/api/progress/${user.id}`)
             .then(r => r.json())
             .then(data => { setStats(data); setLoading(false); })
             .catch(() => { setError('Could not load dashboard. Is the backend running?'); setLoading(false); });

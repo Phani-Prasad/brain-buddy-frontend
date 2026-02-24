@@ -1,7 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './ChatInterface.css';
-
-const API_URL = 'https://brain-buddy-backend-5vgr.onrender.com';
+import { API_BASE } from '../config';
 
 const ChatInterface = ({ sessionId, subject, gradeLevel, language, userId }) => {
   const [messages, setMessages] = useState([]);
@@ -12,7 +11,7 @@ const ChatInterface = ({ sessionId, subject, gradeLevel, language, userId }) => 
 
   const logActivity = (type, opts = {}) => {
     if (!userId) return;
-    fetch(`${API_URL}/api/progress/log`, {
+    fetch(`${API_BASE}/api/progress/log`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ user_id: userId, activity_type: type, subject: subject || 'General', ...opts }),
@@ -44,7 +43,7 @@ const ChatInterface = ({ sessionId, subject, gradeLevel, language, userId }) => 
     abortRef.current = controller;
 
     try {
-      const response = await fetch(`${API_URL}/api/chat/stream`, {
+      const response = await fetch(`${API_BASE}/api/chat/stream`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

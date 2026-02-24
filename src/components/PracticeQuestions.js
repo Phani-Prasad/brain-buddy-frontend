@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './PracticeQuestions.css';
-
-const API_URL = 'http://localhost:8000';
+import { API_BASE } from '../config';
 
 const PracticeQuestions = ({ subject, gradeLevel }) => {
   const [topic, setTopic] = useState('');
@@ -18,7 +17,7 @@ const PracticeQuestions = ({ subject, gradeLevel }) => {
 
     setIsLoading(true);
     try {
-      const response = await axios.post(`${API_URL}/api/practice`, {
+      const response = await axios.post(`${API_BASE}/api/practice`, {
         subject: subject,
         topic: topic,
         difficulty: difficulty,

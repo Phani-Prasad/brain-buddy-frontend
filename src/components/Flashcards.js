@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './Flashcards.css';
-
-const API_URL = 'https://brain-buddy-backend-5vgr.onrender.com';
+import { API_BASE } from '../config';
 
 function Flashcards({ userId, subject }) {
     const [documents, setDocuments] = useState([]);
@@ -20,7 +19,7 @@ function Flashcards({ userId, subject }) {
     const logActivity = (got, total) => {
         if (!userId) return;
         const score = total > 0 ? Math.round((got / total) * 100) : null;
-        fetch('http://localhost:8000/api/progress/log', {
+        fetch(`${API_BASE}/api/progress/log`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -35,7 +34,7 @@ function Flashcards({ userId, subject }) {
 
     // Load document list on mount
     useEffect(() => {
-        fetch(`${API_URL}/api/documents`)
+        fetch(`${API_BASE}/api/documents`)
             .then(r => r.json())
             .then(data => setDocuments(data.documents || []))
             .catch(() => setError('Could not load documents. Is the backend running?'));
@@ -53,7 +52,7 @@ function Flashcards({ userId, subject }) {
         setSessionDone(false);
 
         try {
-            const res = await fetch(`${API_URL}/api/documents/${docId}/flashcards?count=${count}`);
+            const res = await fetch(`${API_BASE}/api/documents/${docId}/flashcards?count=${count}`);
             if (!res.ok) throw new Error((await res.json()).detail || 'Failed to generate');
             const data = await res.json();
             if (!data.flashcards || data.flashcards.length === 0) {

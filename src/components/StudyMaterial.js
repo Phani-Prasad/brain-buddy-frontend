@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './StudyMaterial.css';
-
-const API_URL = 'https://brain-buddy-backend-5vgr.onrender.com';
+import { API_BASE } from '../config';
 
 const StudyMaterial = ({ language }) => {
     const [documents, setDocuments] = useState([]);
@@ -31,7 +30,7 @@ const StudyMaterial = ({ language }) => {
 
     const fetchDocuments = async () => {
         try {
-            const response = await axios.get(`${API_URL}/api/documents`);
+            const response = await axios.get(`${API_BASE}/api/documents`);
             setDocuments(response.data.documents || []);
         } catch (error) {
             console.error('Error fetching documents:', error);
@@ -55,7 +54,7 @@ const StudyMaterial = ({ language }) => {
         formData.append('file', file);
 
         try {
-            const response = await axios.post(`${API_URL}/api/documents/upload`, formData, {
+            const response = await axios.post(`${API_BASE}/api/documents/upload`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
 
@@ -104,7 +103,7 @@ const StudyMaterial = ({ language }) => {
         if (!window.confirm('Delete this document? This cannot be undone.')) return;
 
         try {
-            await axios.delete(`${API_URL}/api/documents/${docId}`);
+            await axios.delete(`${API_BASE}/api/documents/${docId}`);
             if (selectedDoc?.id === docId) {
                 setSelectedDoc(null);
                 setMessages([]);
