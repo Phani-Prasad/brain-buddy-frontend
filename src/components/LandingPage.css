@@ -1136,15 +1136,48 @@
 
 /* Push scroll area down so content isn't hidden behind the fixed navbar */
 .landing-scroll-area {
-    padding-top: 80px;
+    padding-top: 70px;
+}
+
+@media (max-width: 768px) {
+    .landing-navbar {
+        padding: 0.75rem 1.25rem;
+    }
+
+    .landing-navbar-name {
+        font-size: 1.2rem;
+    }
+
+    .landing-navbar-icon {
+        font-size: 1.5rem;
+    }
 }
 
 @media (max-width: 480px) {
     .landing-navbar {
-        padding: 0.75rem 1rem;
+        padding: 0.6rem 0.75rem;
+    }
+
+    .landing-navbar-logo {
+        gap: 0.4rem;
+    }
+
+    .landing-navbar-icon {
+        font-size: 1.3rem;
     }
 
     .landing-navbar-name {
-        display: none;
+        display: block;
+        font-size: 1.05rem;
+    }
+
+    .landing-navbar-actions {
+        gap: 0.4rem;
+    }
+
+    .landing-nav-login,
+    .landing-nav-signup {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.75rem;
     }
 }
