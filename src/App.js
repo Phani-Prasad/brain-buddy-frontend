@@ -1,3 +1,16 @@
+import React, { useState, useEffect, useLayoutEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import './App.css';
+import Header from './components/Header';
+import SubjectSelector from './components/SubjectSelector';
+import ChatInterface from './components/ChatInterface';
+import ExplainTopic from './components/ExplainTopic';
+import PracticeQuestions from './components/PracticeQuestions';
+import VoiceTutor from './components/VoiceTutor';
+import StudyMaterial from './components/StudyMaterial';
+import LandingPage from './components/LandingPage';
+import Flashcards from './components/Flashcards';
+import Dashboard from './components/Dashboard';
 import { API_BASE } from './config';
 
 function App() {

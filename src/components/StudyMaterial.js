@@ -130,7 +130,7 @@ const StudyMaterial = ({ language }) => {
             formData.append('question', question);
 
             const response = await axios.post(
-                `${API_URL}/api/documents/${selectedDoc.id}/query`,
+                `${API_BASE}/api/documents/${selectedDoc.id}/query`,
                 formData
             );
 
@@ -166,7 +166,7 @@ const StudyMaterial = ({ language }) => {
 
         try {
             const response = await axios.post(
-                `${API_URL}/api/documents/${selectedDoc.id}/summarize`
+                `${API_BASE}/api/documents/${selectedDoc.id}/summarize`
             );
 
             setMessages((prev) => [
@@ -193,7 +193,7 @@ const StudyMaterial = ({ language }) => {
 
         try {
             const response = await axios.post(
-                `${API_URL}/api/documents/${selectedDoc.id}/flashcards`
+                `${API_BASE}/api/documents/${selectedDoc.id}/flashcards`
             );
 
             setFlashcards(response.data.flashcards || []);
