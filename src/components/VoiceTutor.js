@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import './VoiceTutor.css';
 import { API_BASE } from '../config';
 
-function VoiceTutor({ sessionId, subject, gradeLevel }) {
+function VoiceTutor({ sessionId, subject, gradeLevel, language }) {
     const [isRecording, setIsRecording] = useState(false);
     const [isProcessing, setIsProcessing] = useState(false);
     const [transcript, setTranscript] = useState('');
@@ -71,6 +71,7 @@ function VoiceTutor({ sessionId, subject, gradeLevel }) {
             formData.append('session_id', sessionId || 'voice-session');
             formData.append('subject', subject || 'General');
             formData.append('grade_level', gradeLevel || 'High School');
+            formData.append('language', language || 'en');
 
             const res = await fetch(`${API_BASE}/api/voice/chat`, {
                 method: 'POST',

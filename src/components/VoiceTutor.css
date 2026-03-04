@@ -264,7 +264,7 @@
   border: none;
   border-radius: var(--radius-full);
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  color: #ffffff !important;
+  color: #1e293b !important;
   cursor: pointer;
   transition: var(--transition-slow);
   box-shadow: var(--shadow-lg);
@@ -273,7 +273,7 @@
 }
 
 .record-button span {
-  color: #ffffff !important;
+  color: #1e293b !important;
   position: relative;
   z-index: 2;
 }
